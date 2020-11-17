@@ -335,4 +335,185 @@ Sort --- sorts the array items into an alphabetical order.*/
     const sortedCompanies2 = companies.sort((a, b) => (a.start > b.start ? 1 : -1));
     console.log(sortedCompanies2);
     
-   # Arrays & Objects
+
+   # Arrays & Objects 
+## Object.values() 
+Object.values() - Returns an array of the values of an object.
+
+    const icecreamColors = {
+        chocolate: 'brown',
+        vanilla: 'white',
+        strawberry: 'red',
+    }
+    const colors = Object.values(icecreamColors);
+    console.log(colors);
+    // ["brown", "white", "red"]
+
+## Object.keys()
+Object.keys() --- Return an array of the keys of an object.
+
+    const types = Object.keys(icecreamColors);
+    console.log(types);
+    // ["chocolate", "vanilla", "strawberry"]
+
+## Object.entries()
+Object.entries() --- Creates an array which contains arrays of key/value pairs of an object.
+
+    const weather = {
+      rain: 0,
+      temperature: 24,
+      humidity: 33,
+    }
+    const entries = Object.entries(weather);
+    console.log(entries);
+    // [["rain", 0], ["temperature", 24], ["humidity", 33]]
+    //entries { key : values }
+
+## Object Spread()
+Object spread --- Spreading an object allows for the addition of new properties and values to an object without mutations (i.e. a new object is created) and it can also be used to combine multiple objects together.
+
+    const spreadableObject = {
+      name: 'Robert',
+      phone: 'iPhone'
+    };
+    const newObject = {
+      ...spreadableObject,
+      carModel: 'Volkswagen'
+    }
+    console.log(newObject);
+    
+    //Object {
+      carModel: "Volkswagen",
+      name: "Robert",
+      phone: "iPhone"
+    }
+
+## Convert Object into Array
+Convert Object into Array --- ( Only the top-level is converted.)
+
+    let obj2 = {
+      "name": "Rean Schwarzer",
+      "occupations": [
+        "Student (graduated)",
+        "Resistance Leader",
+        "New Class VII Instructor"
+      ],
+      "parents": {
+        "father": "Teo",
+        "mother": "Lucia"
+      }
+    }
+    let entries2 = Object.entries(obj2);
+    console.log('entries2 ', entries2);
+    
+    //"entries2 " [["name", "Rean Schwarzer"], ["occupations", ["Student (graduated)", "Resistance Leader", "New Class VII Instructor"]], ["parents", Object {
+     father: "Teo",
+     mother: "Lucia"
+    }]]
+
+
+    const numbers22 = {
+      one: 1,
+      two: 2
+    }
+
+    let numbers22ArrayKeys = Object.keys(numbers22);
+    console.log(numbers22ArrayKeys);
+    // ["one", "two"]
+
+    let numbers22ArrayValues = Object.values(numbers22);
+    console.log(numbers22ArrayValues);
+    // [1, 2]
+
+    let numbers22ArrayEntries = Object.entries(numbers22);
+    console.log(numbers22ArrayEntries);
+    // [["one", 1], ["two", 2]]
+
+    numbers22ArrayEntries.forEach(([key, value]) => {
+      console.log(key); 
+      // 'one'
+      console.log(value); 
+      // 1
+    })
+
+## Convert Array into an Object
+--- Convert an Array to an Object
+
+    let scores = [
+      ["Tim", 90],
+      ["Joe", 88],
+      ["Kelly", 95],
+      ["Jesse", 77]
+    ]
+    let obj3 = Object.fromEntries(scores);
+    
+    console.log(obj3);
+    // Object {
+      Jesse: 77,
+      Joe: 88,
+      Kelly: 95,
+      Tim: 90
+    }
+
+## Mapping Object to Array
+--- Mapping Object to Array
+
+    const peopleObj = {
+      dave: { id: 123, name: "dave", age: 23 },
+      chris: { id: 456, name: "chris", age: 23 },
+      bob: { id: 789, name: "bob", age: 23 },
+      tom: { id: 101, name: "tom", age: 23 },
+      tim: { id: 102, name: "tim", age: 23 }
+    }
+    const peopleArray = Object.keys(peopleObj).map(i => peopleObj[i])
+    
+    console.log(peopleArray);
+    //[Object {
+     age: 23,
+     id: 123,
+     name: "dave"
+    }, Object {
+     age: 23,
+     id: 456,
+     name: "chris"
+    }, Object {
+     age: 23,
+     id: 789,
+     name: "bob"
+    }, Object {
+     age: 23,
+     id: 101,
+     name: "tom"
+    }, Object {
+     age: 23,
+     id: 102,
+     name: "tim"
+    }]
+
+## Array & Set
+
+    let arrX = Array.from("123"); //["1","2","3"];
+    
+    let emptySet = new Set(); 
+    let exampleSet = new Set([1,2,3]);
+    
+    let set = new Set([1,2,3]); // {1,2,3}
+    let arrX1 = Array.from(set);//[1,2,3]
+    
+    console.log(set[0]); //undefined
+    console.log(arr[0]); //1
+    
+    console.log(set.has(0)); // boolean - false
+    console.log(arr.indexOf(0)); // -1
+    console.log(set.has(1)); //true
+    console.log(arr.indexOf(1)); //0
+    
+    //In Set, there is only one way to add new element: 
+    set.add(3); //{1,2,3} 
+    set.add(4); //{1,2,3,4}
+    
+    //Delete(element) — remove a specific given element from Set.
+    set.delete(4); //{1,2,3}
+    //Clear() — remove all elements from Set.
+    set.clear(); //{}
+
